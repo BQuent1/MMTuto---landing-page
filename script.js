@@ -45,7 +45,7 @@ if (container) {
     const scene = new THREE.Scene();
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    
+
     // Set size based on container
     const updateSize = () => {
         const width = container.clientWidth || 400;
@@ -60,7 +60,7 @@ if (container) {
 
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
     camera.position.set(0, 0, 10);
-    
+
     updateSize(); // initial sizing
     window.addEventListener('resize', updateSize);
 
@@ -96,18 +96,18 @@ if (container) {
             const center = box.getCenter(new THREE.Vector3());
             const size = box.getSize(new THREE.Vector3());
             const maxDim = Math.max(size.x, size.y, size.z);
-            const scale = 5 / maxDim; // Fit within 5 units
-            
+            const scale = 6 / maxDim; // Fit within 5 units
+
             object.scale.setScalar(scale);
             object.position.sub(center.multiplyScalar(scale)); // Center it
-            
+
             // Apply premium shiny material
-            const material = new THREE.MeshStandardMaterial({ 
-                color: 0xe2e8f0, 
+            const material = new THREE.MeshStandardMaterial({
+                color: 0xe2e8f0,
                 roughness: 0.2,
-                metalness: 0.7 
+                metalness: 0.7
             });
-            
+
             object.traverse((child) => {
                 if (child.isMesh) {
                     child.material = material;
@@ -127,6 +127,6 @@ if (container) {
         controls.update(); // Required for damping & autoRotate
         renderer.render(scene, camera);
     }
-    
+
     animate();
 }

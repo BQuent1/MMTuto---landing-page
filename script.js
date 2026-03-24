@@ -96,7 +96,7 @@ if (container) {
             const center = box.getCenter(new THREE.Vector3());
             const size = box.getSize(new THREE.Vector3());
             const maxDim = Math.max(size.x, size.y, size.z);
-            const scale = 6 / maxDim; // Fit within 5 units
+            const scale = 5 / maxDim; // Augmentation de la taille
 
             object.scale.setScalar(scale);
             object.position.sub(center.multiplyScalar(scale)); // Center it

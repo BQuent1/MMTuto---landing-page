@@ -205,45 +205,16 @@ nav a:hover {
     align-items: center;
 }
 
-.ar-sphere {
+.interactive-3d {
+    width: 100%;
+    max-width: 650px;
+    height: 650px;
     position: relative;
-    width: 300px;
-    height: 300px;
+    cursor: grab;
 }
 
-.ring {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid rgba(139, 92, 246, 0.4);
-    border-radius: 50%;
-    animation: spin linear infinite;
-}
-
-.ring-1 {
-    border-left-color: var(--secondary);
-    animation-duration: 4s;
-}
-
-.ring-2 {
-    border-right-color: var(--primary);
-    animation-duration: 6s;
-    animation-direction: reverse;
-    transform: scale(0.8) rotateX(60deg);
-}
-
-.ring-3 {
-    border-top-color: white;
-    animation-duration: 5s;
-    transform: scale(0.6) rotateY(60deg);
-}
-
-@keyframes spin {
-    100% {
-        transform: rotate(360deg) scale(var(--s, 1));
-    }
+.interactive-3d:active {
+    cursor: grabbing;
 }
 
 /* Product Section */
